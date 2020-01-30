@@ -11,8 +11,11 @@
     <body>
         <div class="page-header">
             {% if user.is_authenticated %}
-            <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <p class="top-menu">Привет {{ user.username }} <small>(<a href="{% url 'logout' %}">Выйти</a>)</small></p>
+            {% else %}
+                <p class ="top-menu">Вы не зашли в систему <small>(<a href="{% url 'login' %}"><span class="glyphicon glyphicon-lock"></span></a>)</small></p>
             {% endif %}
             <h1><a href="/">Kalex Blog</a></h1>
         </div>
